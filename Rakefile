@@ -4,13 +4,13 @@ require ::File.expand_path('../config/environment', __FILE__)
 
 class UsersImporter
 
-  def initialize(filename=File.absolute_path('db/users.csv'))
+  def initialize(filename=File.absolute_path('db/votes.csv'))
     @filename = filename
   end
 
   def import
-    field_names = ['user_name', 'email', 'password', 'created_at']
-    puts "Importing students from '#{@filename}'"
+    field_names = ['user_id', 'photo_link', 'created_at', 'updated_at', 'animal_type']
+    puts "Importing votes from '#{@filename}'"
     failure_count = 0
     User.transaction do
       File.open(@filename).each do |line|
