@@ -12,12 +12,12 @@ class UsersImporter
     field_names = ['user_id', 'photo_id', 'created_at', 'updated_at', 'vote_type']
     puts "Importing votes from '#{@filename}'"
     failure_count = 0
-    User.transaction do
+    Vote.transaction do
       File.open(@filename).each do |line|
         data = line.chomp.split(',')
         attribute_hash = Hash[field_names.zip(data)]
         begin
-          User.create!(attribute_hash)
+          Vote.create!(attribute_hash)
           print '.'
         rescue ActiveRecord::UnknownAttributeError
           failure_count += 1
