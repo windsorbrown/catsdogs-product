@@ -2,7 +2,7 @@
 
 # class UsersImporter
 
-#   def initialize(filename=File.absolute_path('db/data/users.csv'))
+#   def initialize(filename=File.absolute_path('db/users.csv'))
 #     @filename = filename
 #   end
 
