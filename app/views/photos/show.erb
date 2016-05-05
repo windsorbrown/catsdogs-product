@@ -1,0 +1,150 @@
+<div class="container">
+  <!-- Example row of columns -->
+     <div class ="voting_photo">
+  <div class="row">
+    <div class="col-md-3" style="padding-left: 30px">
+      <hr/>
+      <h4 style="text-align: center; font-family:Pacifico; color:#007D75; font-size: 25px;">user  : <%= @current_user.user_name %></h4>
+      <hr/>
+
+
+
+          <div  id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+               <div class="row">
+                  <h4 class="panel-title">
+                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                        <div class="col-md-9">
+                          <h4 style="text-align: center; font-family:Pacifico; color:#007D75; font-size: 18px;">Your Pet Photos</h4>
+                        </div>
+                        <div class="col-md-3">
+                           <span class="label label-pill label-info"><%= @current_user.photos.count %></span>
+                        </div>
+                      </a>
+                  </h4>
+                </div>
+              </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <% @current_user.photos.each do |photo| %>
+                <div class="panel-body">
+                  <div class="row">
+                    <div id="GENERALPHOTO" class="col-md-4">
+                      <img id="<%=photo.photo_link%>" src="/images/<%=photo.animal_type%>/<%=photo.photo_link%>.jpg" alt="" style="width: 100%; border-radius: 50%; border:2px solid #007D75">
+                    </div>
+                    <div class="col-md-6">
+                      <span class="glyphicon glyphicon-thumbs-up good" aria-hidden="true"></span>
+                      <span class="label label-pill label-success"><%=photo.upvotes%></span>
+                      <span class="glyphicon glyphicon-thumbs-down bad" aria-hidden="true"></span>
+                      <span class="label label-pill label-danger"><%=photo.downvotes%></span>
+                    </div>
+                    <div class="col-md-2">
+                      <span id="DELETE" class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+                <%end%>
+            </div>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+               <div class="row">
+                  <h4 class="panel-title">
+                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" >
+                        <div class="col-md-12">
+                           <h4 style="text-align: center; font-family:Pacifico; color:#007D75; font-size: 18px;">Upload New Photo</h4>
+                        </div>
+                      </a>
+                  </h4>
+                </div>
+              </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <div class="row">
+                  <form id="form1" method="post" action="/photos/get_image" enctype='multipart/form-data'>
+                    <div class="col-md-3">
+                    <img id="image_name" src="/images/avatar.jpg" style="width: 100%">
+                    </div>
+                    <div class="col-md-7">
+                     <input type="file" id="files" name="pic" accept="image/*" onchange="readURL(this);" style="width: 100%; font-family:Pacifico; color:#007D75; font-size: 5;" >
+                     <div class="row">
+                     <div class="col-md-6">
+                     <input type="radio" name="gender" value="cat"><span style="text-align: center; font-family:Pacifico; color:#007D75; font-size: 5;">Cat</span><br>
+                     </div>
+                     <div class="col-md-6">
+                     <input type="radio" name="gender" value="dog"><span style="text-align: center; font-family:Pacifico; color:#007D75; font-size: 5;">Dog</span><br>
+                     </div>
+                     </div>
+                      <div style="margin-top: 1px" class="row">
+                        <div class="col-md-8">
+                          <input type="submit" name="Hell" value="Cancel" style="margin-left:20px;width:100%;  font-family:Pacifico;  font-size: 2" >
+                        </div>
+                        <div class="col-md-6">
+                          <input type="submit" name="Hell" value="Ok" style="margin-left:20px;width:100%; text-align: center; font-family:Pacifico;  font-size: 2" >
+                        </div>
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+             <div class="btn-group btn-toggle" style="align-items: center;"> 
+               <div>
+                <input type="button" id="CAT" name="CAT" value="Rate Cats" style="margin-left:80px;width:100%; text-align: center; font-family:Pacifico;  font-size: 2" class="<%= @animal_cat_class %>">
+              </div><div>
+                <input type="button" id="DOG" name="DOG" value="Rate Dogs" style="margin-left:80px;width:100%; text-align: center; font-family:Pacifico;  font-size: 2" class="<%= @animal_dog_class %>">
+                </div>
+            </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="col-md-9">
+      <div class="row">
+        <div class= "col-md-5">
+          <div class="row">
+            <div class= "col-md-6">
+              <div class="form-inline">
+             <div class="outer_heart">
+                  <div class="inner">
+                    <a id="HEART" href=""><span class="glyphicon glyphicon-heart" aria-hidden="true">
+                    </span></a>
+              </div>
+              </div>
+             <div class="outer_remove">
+                  <div class="inner">
+                    <a id="NOTHEART" href=""><span class="glyphicon glyphicon-remove" aria-hidden="true">
+                    </span></a>
+                    </div>
+                    </div>
+            
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div><p  style="margin-left:80px;width:100%; text-align:left; font-family:Pacifico ;color:#007D75; font-size: 5" id="PHOTO_NAME"><%= @animal.user.user_name %><p></div>
+              <div class="row" style="padding: 5px">
+                  <span class="glyphicon glyphicon-thumbs-up good" aria-hidden="true"></span>
+                  <span class="label label-pill label-success" id="PHOTO_UPVOTE"><%=@animal.upvotes%></span>
+                  <span class="glyphicon glyphicon-thumbs-down bad" aria-hidden="true"></span>
+                  <span class="label label-pill label-danger" id="PHOTO_DOWNVOTE"><%=@animal.downvotes%></span>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class ="img-rounded" id="animal_image" src="/images/<%= @animal.animal_type %>/<%= @animal.photo_link %>.jpg" alt="photo" style="width: 100% ; border:2px solid #cad7db">
+    </div>
+   
+    </div>
+
+   </div>
+  </div>

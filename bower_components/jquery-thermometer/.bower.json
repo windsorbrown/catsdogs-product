@@ -1,0 +1,29 @@
+{
+  "name": "jquery-thermometer",
+  "version": "1.0.0",
+  "main": [
+    "./js/jquery.thermometer.js",
+    "./svg/thermo-bottom.svg"
+  ],
+  "ignore": [
+    "packages",
+    "images",
+    "index.*",
+    "README.md",
+    ".gitignore"
+  ],
+  "dependencies": {
+    "jquery": "latest"
+  },
+  "homepage": "https://github.com/davedupplaw/jquery.thermometer",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "a6cb62bc11a6e86700e9fc53f7a3c9686818330e"
+  },
+  "_source": "https://github.com/davedupplaw/jquery.thermometer.git",
+  "_target": "^1.0.0",
+  "_originalSource": "jquery.thermometer",
+  "_direct": true
+}

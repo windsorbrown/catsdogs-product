@@ -1,0 +1,121 @@
+
+
+<div class ="home_page">
+<div class="container-fluid">
+  <div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-0 main">
+    <h1 class="page-header" style="text-align: center; font-family:Pacifico; color:#007D75; font-size: 55px;">Who is cuter?</h1>
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+                  
+             <!--  <h1 style="font-color:red"><span class="blink_me">Kitty-memter</span></h1>
+ -->
+
+      <div class="container2">
+      <div class="fade2"></div>
+        <div class="show2"></div>
+         <div class="bar2" data-total2="10000"><div class="text2" style="font-family:Pacifico; color:Red; font-size: 35px;"><p> Meow-<br /></p>Meter<br /><span><%= DailyVote.catometer_score%></span></div>
+      </div></div>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <% if session[:temp_id] %>
+
+
+           <input type="image" src="images/cat/<%=Vote.top_cat_yesterday.photo_link %>.jpg" width="300" height="300" style="border-radius: 50%;  border:10px solid #FFF;" alt="Vote for Cats" data-toggle="modal" data-target="#exampleModal" /> 
+           
+            <% else %>
+
+            <form method="POST" action='/vote/daily_vote'>
+            <input type="hidden" name="photo_id" value="<%=Vote.top_cat_yesterday.id%>">
+           <input type="image" src="images/cat/<%=Vote.top_cat_yesterday.photo_link %>.jpg" width="300" height="300" style="border-radius: 50%; border:10px solid #FFF;" alt="Vote for Cats" /> 
+               
+             </form>
+            
+            <% end %>
+
+            <h1>Leo</h1>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+
+           <% if session[:temp_id] %>
+
+
+             <input type="image" src="images/dog/<%=Vote.top_dog_yesterday.photo_link %>.jpg" width="300" height="300" style="border-radius: 50%;  border:10px solid #FFF;" alt="Vote for Dogs" data-toggle="modal" data-target="#exampleModal" /> 
+             <!--  </form> -->
+        
+          <% else %>
+
+            <form method="POST" action='/vote/daily_vote'>
+            <input type="hidden" name="photo_id" value="<%=Vote.top_dog_yesterday.id%>">
+           <input type="image" src="images/dog/<%=Vote.top_dog_yesterday.photo_link %>.jpg" width="300" height="300" style="border-radius: 50%; border:10px solid #FFF;" alt="Vote for Dogs" /> 
+               
+             </form>
+             <% end %>
+              <h1>Stella</h1>
+        </div>
+        
+
+
+
+        <div class="col-xs-6 col-sm-3 placeholder">
+         <!--  <h1><span class="blink_me">DAWGo-memter</span></h1> -->
+          <div class="container3">
+      
+        
+         <div class="bar3" data-total3="10000"><div class="text2" style="font-family:Pacifico; color:Red; font-size: 35px;"><p> Woof-<br /></p>Meter<br /><span><%= DailyVote.dogometer_score%></span>
+
+
+         </div>
+   <!--       <div class="show3"></div>
+         <div class="fade3"></div> -->
+         </div>
+      </div>
+
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 placeholder">
+             <div class="table-responsive">
+
+             </div>
+          </div>
+        </div>
+    </div>
+   </div>
+
+
+ <!-- Button trigger modal -->
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title" id="exampleModalLabel">Thank you for your vote</h1>
+      </div>
+      <div class="modal-body">
+      
+      <% if @current_user %>
+        <h3>You have already registered your daily vote. Please continue to your dashboard and up/down vote for your favorite photos</h3>
+        <form action="/photos/show">
+           <button type="submit" class="btn btn-success">dashboard</button>
+        </form>
+
+      <%else %>
+
+          <a href="/users/login">
+           <button type="submit" class="btn btn-success">Sign in</button>
+          </a>
+        
+         <a href="/users/login"> <button class="btn btn-success">Sign up</button></a>
+          <h3>To continue voting on your favorite photos OR upload your own</h3>
+      <%end%>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+

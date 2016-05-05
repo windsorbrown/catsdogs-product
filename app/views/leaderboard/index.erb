@@ -1,0 +1,94 @@
+<div class="leaderboard">
+<div class="container-fluid">
+
+<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-0 main">
+          <h1 class="page-header" style="text-align: center; color:#007D75;">Top Prospects for Tomorrow's Contest</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="images/cat/<%=Vote.top_cat_today.photo_link %>.jpg" width="300" height="300" class="img-rounded" style="border:10px solid #FFF;">
+              <h4>Cinderella</h4>
+           
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="images/dog/<%=Vote.top_dog_today.photo_link %>.jpg" width="300" height="300" class="img-rounded" style="border:10px solid #FFF;">
+              <h4>Stella</h4>
+            
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+            </div>
+          </div>
+
+   
+         
+          <div class="col-xs-6 col-sm-6 placeholder">
+             <div class="table-responsive">
+            
+
+            <table class="table table-striped">
+   <thead>
+                <tr>  
+                  <th><h3>User</h3></th>
+                  <th><h3>photo</h3></th>
+                  <th><h3>Up Votes</h3></th>
+                   <th><h3>Down Votes</h3></th>
+                  <th><h3 class = "text-success">Total Score</h3></th>
+                </tr>
+              </thead>
+          <%  
+              Photo.total_votes_today.where('photos.animal_type = ?', 'cat').limit(10).each do |photo|
+               %>
+              <tbody>
+                <tr>
+                <td><h4><%= photo.user.user_name %></h4></td>
+                  <td><h5><img src="images/cat/<%= photo.photo_link %>.jpg" class="img-rounded" width="50" height="50"></h5></td>
+                  <td><h3 style="font-family: 'Alegreya Sans';"><%= photo.upvotes %></h3></td>
+                  <td ><h3 class ="text-danger" style="font-family: 'Alegreya Sans';"><%=photo.downvotes %></h3></td>
+                  <td><h3 class ="text-success" style="font-family: 'Alegreya Sans';"><strong><%= photo.upvotes-photo.downvotes %></strong></h3></td>  
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+            </div>
+
+         
+
+ <div class="col-xs-6 col-sm-6 placeholder">
+
+          <div class="table-responsive">
+            
+
+            <table class="table table-striped">
+         <thead>
+                <tr>
+                  <th><h3>User</h3></th>
+                  <th><h3>photo</h3></th>
+                  <th><h3>Up Votes</h3></th>
+                   <th><h3>Down Votes</h3></th>
+                  <th><h3 class = "text-success">Total Score</h3></th>
+                </tr>
+              </thead>
+             <%  #dog_votes =[]
+              Photo.total_votes_today.where('photos.animal_type = ?', 'dog').limit(10).each do |photo|
+               %>
+              <tbody>
+                <tr>
+                  <td><h4><%= photo.user.user_name %></h4></td>
+                  <td><h5><img src="images/dog/<%= photo.photo_link %>.jpg" class="img-rounded" width="50" height="50"></h5></td>
+                  <td><h3 style="font-family: 'Alegreya Sans';"><%= photo.upvotes %></h3></td>
+                  <td ><h3 class ="text-danger" style="font-family: 'Alegreya Sans';"><%=photo.downvotes %></h3></td>
+                  <td><h3 class ="text-success" style="font-family: 'Alegreya Sans';"><strong><%= photo.upvotes-photo.downvotes %></strong></h3></td>  
+                </tr>
+                <% end %>
+              </tbody>
+            </table></div>
+  
+
+
+          </div>
+        </div>
+    </div>
+   </div>

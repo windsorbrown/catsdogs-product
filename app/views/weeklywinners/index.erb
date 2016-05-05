@@ -1,0 +1,70 @@
+<!-- <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p> -->
+<!-- <img src="images/cat/<%= Vote.top_cat_today.photo_link %>.jpg" width="300" height="300" class="img-rounded"> -->
+  <div class="leaderboard">
+
+    <div class="container marketing">
+
+     <h1 class="ws-test" style="color:#007D75;">Previous Battle of Cuteness Winners</h1>
+     <br>
+     <br>
+
+    <!--   -->
+    <div class="row">
+
+      <div class="col-lg-2">
+       <div style="text-align: center;" > <img class="img-circle" src="images/<%= DailyVote.winner_of_day(1).animal_type
+ %>/<%= DailyVote.winner_of_day(1).photo_link %>.jpg" width="140" height="140" style="border:7px solid #FFF;">
+        <p>"Fluffy"</p>
+        <p><%= DailyVote.winner_of_day(1).user.user_name %></p>
+        <p><%= Date.today - 1 %></p>
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+       <div style="text-align: center;" >  <img class="img-circle" src="images/<%= DailyVote.winner_of_day(2).animal_type
+ %>/<%= DailyVote.winner_of_day(2).photo_link %>.jpg" width="140" height="140" style="border:7px solid #FFF;">
+         <p>"Bella"</p>
+        <p><%= DailyVote.winner_of_day(2).user.user_name %></p>
+        <p><%= Date.today - 2 %></p>
+      </div>
+      </div>
+
+          <div style="text-align: center;" >   <div class="col-lg-2">
+        <img class="img-circle" src="images/<%= DailyVote.winner_of_day(3).animal_type
+ %>/<%= DailyVote.winner_of_day(3).photo_link %>.jpg" width="140" height="140" style="border:7px solid #FFF;">
+         <p>"Bailey"</p>
+        <p><%= DailyVote.winner_of_day(3).user.user_name %></p>
+        <p><%= Date.today - 3 %></p>
+      </div></div>
+
+      <div style="text-align: center;" > 
+            <div class="col-lg-2">
+        <img class="img-circle" src="images/<%= DailyVote.winner_of_day(4).animal_type
+ %>/<%= DailyVote.winner_of_day(4).photo_link %>.jpg" width="140" height="140" style="border:7px solid #FFF;">
+         <p>"Max"</p>
+        <p><%= DailyVote.winner_of_day(4).user.user_name %></p>
+        <p><%= Date.today - 4 %></p>
+      </div>
+      </div>
+      <div style="text-align: center;" > 
+
+            <div class="col-lg-2">
+        <img class="img-circle" src="images/<%= DailyVote.winner_of_day(5).animal_type
+ %>/<%= DailyVote.winner_of_day(5).photo_link %>.jpg" width="140" height="140" style="border:7px solid #FFF;">
+         <p>"Lucy"</p>
+        <p><%= DailyVote.winner_of_day(5).user.user_name %></p>
+        <p><%= Date.today - 5 %></p>
+      </div>
+</div>  
+            
+            <div style="text-align: center;" > <div class="col-lg-2">
+        <img class="img-circle" src="images/<%= DailyVote.winner_of_day(6).animal_type
+ %>/<%= DailyVote.winner_of_day(6).photo_link %>.jpg" width="140" height="140" style="border:7px solid #FFF;">
+         <p>"Chloe"</p>
+        <p><%= DailyVote.winner_of_day(6).user.user_name %></p>
+        <p><%= Date.today - 6 %></p>
+      </div>
+</div>
+    </div><!-- /.row -->
+
+    </div>
