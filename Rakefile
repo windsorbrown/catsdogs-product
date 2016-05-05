@@ -9,7 +9,7 @@ class UsersImporter
   end
 
   def import
-    field_names = ['user_id', 'photo_link', 'created_at', 'updated_at', 'animal_type']
+    field_names = ['user_id', 'photo_id', 'created_at', 'updated_at', 'vote_type']
     puts "Importing votes from '#{@filename}'"
     failure_count = 0
     User.transaction do
