@@ -44,12 +44,12 @@ class PhotoImporter
     field_names = ['user_id', 'photo_link', 'created_at', 'updated_at', 'animal_type']
     puts "Importing photos from '#{@filename}'"
     failure_count = 0
-    DailyVote.transaction do
+    Photo.transaction do
       File.open(@filename).each do |line|
         data = line.chomp.split(',')
         attribute_hash = Hash[field_names.zip(data)]
         begin
-          DailyVote.create!(attribute_hash)
+          Photo.create!(attribute_hash)
           print '.'
         rescue ActiveRecord::UnknownAttributeError
           failure_count += 1
@@ -89,7 +89,7 @@ end
 desc 'populate the test database with data'
 task 'db:populate' do
  # AppConfig.establish_connection
-  UsersImporter.new.import
+ # UsersImporter.new.import
   PhotoImporter.new.import
   # Invoke your TeachersImporter here
 end
