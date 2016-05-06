@@ -41,23 +41,23 @@
 
 
 
-     count = 5
-  somenum = 223452
+  #    count = 5
+  # somenum = 223452
     
-     60.times do
-     voters = 274
-       vote = DailyVote.new(
-         photo_id: voters
-        # created_at: "2016- 04:15:01.#{somenum.to_s}"\
-        )
+  #    60.times do
+  #    voters = 274
+  #      vote = DailyVote.new(
+  #        photo_id: voters
+  #       # created_at: "2016- 04:15:01.#{somenum.to_s}"\
+  #       )
      
      
 
-       vote.save
-       somenum += 1
-       count += 1
+  #      vote.save
+  #      somenum += 1
+  #      count += 1
     
-     end
+  #    end
 
 
 
@@ -95,10 +95,53 @@
 
 
 
+##########
+# one user votes for every photo except votes 2 wice for 2 photos.
+####
 
 
+   photo_id = 2
+#   user = 2
+#   somenum = 223452
+   
+   98.times do 
+     
+#     #95.times do 
+
+      vote = Vote.new(
+          user_id: 29,
+          photo_id: photo_id,
+          created_at: "2016-05-05 04:15:01",
+          vote_type: 1,
+          )
+      vote.save
+#      user += 1
+#         somenum += 1
+#   
+#     end
+     photo_id +=1
+   end
 
 
+   ####
+   # add daily winner for yesterday today
+   ####
+
+    vote = Vote.new(
+          user_id: 29,
+          photo_id: 20,
+          created_at: "2016-05-05 04:15:01",
+          vote_type: 1,
+          )
+      vote.save
+
+       vote = Vote.new(
+          user_id: 29,
+          photo_id: 80,
+          created_at: "2016-05-05 04:15:01",
+          vote_type: 1,
+          )
+      vote.save
 
 
 
