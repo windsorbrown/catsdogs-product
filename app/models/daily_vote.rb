@@ -9,7 +9,7 @@ class DailyVote < ActiveRecord::Base
       if winning_photo_array = DailyVote.where('DATE(created_at) = ?', Date.today - days_ago).group('photo_id').count.max_by{|k,v| v}
         Photo.find_by id: winning_photo_array[0]
       else
-        Photo.find_by id: 266
+        Photo.find_by id: 2
       end
     end
 
